@@ -23,7 +23,10 @@ fibbonacciInfinite = helper 0 1 where
   helper :: Num a => a -> a -> [a]
   helper x y = x : helper y (x + y)
 
--- | infinite flow of fibonacci numbers
+-- | infinite flow of fibonacci numbers with the idea of sum shifted fibbonacci lines:
+--       0 1 1 2 3 5 8 13 21 34 55 89 144 ...    - is 0, 1 and pairwise sum of elements of:
+--           0 1 1 2 3  5  8 13 21 34  55 ...    - full fibbonacci lines
+--           1 1 2 3 5  8 13 21 34 55  89 ...    - fibbonacci lines with cutted first element
 fibbonacciInfinite' :: [Integer]
 fibbonacciInfinite' = 0 : 1 : zipWith (+) fibbonacciInfinite' (tail fibbonacciInfinite')
 
