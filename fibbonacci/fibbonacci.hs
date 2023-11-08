@@ -6,7 +6,7 @@ fibbonacciNaive n | n == 0    = 0
                   | n == 1    = 1
                   | otherwise = fibbonacciNaive (n - 1) + fibbonacciNaive (n - 2)
 
--- | Tail recursive function
+-- | Tail recursive function O(n)
 fibbonacciHelper :: (Eq a, Num a) => a -> a
 fibbonacciHelper n = helper 0 1 n where
   helper x y 0 = x
