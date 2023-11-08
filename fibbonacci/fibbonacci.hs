@@ -23,6 +23,11 @@ fibbonacciInfinite = helper 0 1 where
   helper :: Num a => a -> a -> [a]
   helper x y = x : helper y (x + y)
 
+-- | infinite flow of fibonacci numbers
+fibbonacciInfinite' :: [Integer]
+fibbonacciInfinite' = 0 : 1 : zipWith (+) fibbonacciInfinite' (tail fibbonacciInfinite')
+
+
 takeNfibbonacci :: Num a => Int -> [a]
 takeNfibbonacci n = take n fibbonacciInfinite
 -- ^ take n numbers of flow
